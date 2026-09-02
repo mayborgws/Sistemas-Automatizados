@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Porta Automatica" id="porta-auto-1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Boundary -->
+        <mxCell id="boundary" value="Fronteira do sistema: porta automatica" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="900" height="480" as="geometry" />
+        </mxCell>
+
+        <!-- External inputs -->
+        <mxCell id="in1" value="Pessoa&#10;(movimento)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#888780;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="40" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="in2" value="Botao manual" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#888780;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="40" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="in3" value="Energia eletrica" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#888780;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="40" width="150" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Row A -->
+        <mxCell id="sensor" value="Sensor de presenca&#10;(detecta movimento)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#378ADD;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="220" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="clp" value="Controlador (CLP)&#10;decide abrir/fechar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#7F77DD;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="220" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="motor" value="Motor / atuador&#10;aciona a porta" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="220" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Row B -->
+        <mxCell id="fimcurso" value="Sensor fim de curso&#10;(posicao da porta)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#378ADD;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="360" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="porta" value="Porta&#10;(mecanismo)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="360" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Row C -->
+        <mxCell id="falha" value="Falha: sensor&#10;com defeito" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCEBEB;strokeColor=#E24B4A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="480" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pert" value="Perturbacao:&#10;vento / obstrucao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="480" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Output -->
+        <mxCell id="saida" value="Porta aberta/fechada&#10;+ sinal visual/sonoro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF3DE;strokeColor=#639922;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="660" width="220" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows: inputs into system -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="in1" target="sensor"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="in2" target="clp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="in3" target="motor"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Arrows: processing chain -->
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="sensor" target="clp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="clp" target="motor"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="motor" target="porta"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Feedback loop -->
+        <mxCell id="e7" value="posicao" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;" edge="1" parent="1" source="porta" target="fimcurso"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="realimentacao" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=0;strokeColor=#7F77DD;fontSize=11;" edge="1" parent="1" source="fimcurso" target="clp"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Fault and disturbance -->
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#E24B4A;" edge="1" parent="1" source="falha" target="sensor"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#EF9F27;" edge="1" parent="1" source="pert" target="porta"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Output arrow -->
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#639922;" edge="1" parent="1" source="porta" target="saida"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Safe behavior note -->
+        <mxCell id="nota" value="Comportamento seguro: se detectar obstrucao ao fechar, reverte para abrir; se o sensor falhar, assume estado seguro (parada/aberta) com alarme; em falta de energia, permite abertura manual." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#888780;align=left;spacingLeft=8;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="650" width="560" height="90" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
